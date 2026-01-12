@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mushosoundlabs | Producción, Mezcla y Mastering</title>
+<meta name="description" content="Mushosoundlabs. Producción musical, mezcla y mastering profesional para artistas independientes.">
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f0f0f;
+  color: #f2f2f2;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+nav a:hover { color: #e63946; }
+
+/* HERO */
+header {
+  height: 90vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+    url("img/bg.jpg") center / cover fixed;
+  display: flex;
+  align-items: center;
+}
+
+header .container {
+  text-align: center;
+  padding-top: 80px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+header .claim {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+header p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.btn {
+  margin-top: 30px;
+  padding: 15px 35px;
+  background: #e63946;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* SECTIONS */
+section {
+  padding: 65px 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #e63946;
+  display: block;
+  margin: 14px auto 0;
+}
+
+section p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  color: #ccc;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.card h3 {
+  color: #e63946;
+  margin-top: 0;
+}
+
+/* IFRAME */
+iframe {
+  width: 100%;
+  height: 152px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* FORM */
+form input,
+form textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: #fff;
+}
+
+form button {
+  margin-top: 10px;
+  background: #e63946;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container">
+    <div><strong>Mushosoundlabs</strong></div>
+    <div>
+      <a href="#servicios">Servicios</a>
+      <a href="#como-trabajo">Cómo trabajo</a>
+      <a href="#portfolio">Trabajo</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <h1>Producción, Mezcla y Mastering Profesional</h1>
+    <div class="claim">Sonido profesional para artistas reales</div>
+    <p>Trabajo con una amplia variedad de estilos, acompañando cada proyecto con una mirada artística y técnica.</p>
+    <a href="#contacto" class="btn">Pedir presupuesto</a>
+  </div>
+</header>
+
+<section id="servicios">
+  <div class="container">
+    <h2>Servicios</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Producción Musical</h3>
+        <p>Arreglos, diseño sonoro y acompañamiento creativo durante todo el proceso.</p>
+      </div>
+      <div class="card">
+        <h3>Mezcla</h3>
+        <p>Balance, profundidad y carácter. Trabajo por proyecto.</p>
+      </div>
+      <div class="card">
+        <h3>Mastering</h3>
+        <p>Optimizado para plataformas digitales y CD.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-trabajo">
+  <div class="container">
+    <h2>Cómo trabajo</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1. Escucha y objetivo</h3>
+        <p>Arrancamos entendiendo tu idea, referencias y el objetivo del proyecto. Cada decisión parte de la canción.</p>
+      </div>
+      <div class="card">
+        <h3>2. Proceso creativo</h3>
+        <p>Trabajo combinando criterio técnico y sensibilidad artística, respetando el estilo y la identidad del artista.</p>
+      </div>
+      <div class="card">
+        <h3>3. Feedback y ajustes</h3>
+        <p>Incluye instancias de revisión para pulir detalles y llegar a un resultado que te represente.</p>
+      </div>
+      <div class="card">
+        <h3>4. Entrega final</h3>
+        <p>Archivos listos para plataformas digitales, con calidad profesional y coherencia sonora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <h2>Escuchá nuestro trabajo</h2>
+    <div class="grid">
+      <div class="card"><iframe src="https://open.spotify.com/embed/track/2VMZp3EoB2b0mekEZftMt7"></iframe></div>
+      <div class="card"><iframe src="https://open.spotify.com/embed/track/5eqCOLnLdgjiXDovTT0EYz"></iframe></div>
+      <div class="card"><iframe src="https://open.spotify.com/embed/track/1UenaMYrA7yB6aXup2NqpC"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <h2>Contacto</h2>
+    <p>Contanos sobre tu proyecto y vemos cómo llevarlo al siguiente nivel.</p>
+
+    <form action="https://formspree.io/f/xnjjagzq" method="POST">
+      <input type="text" name="name" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu email" required>
+      <textarea name="message" rows="5" placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+© 2026 Mushosoundlabs – Producción, Mezcla y Mastering<br>
+<span style="font-size:0.85rem;">Dirigido por Juan Pablo Dubois</span>
+</footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+const reveal = () => {
+  sections.forEach(section => {
+    if (section.getBoundingClientRect().top < window.innerHeight * 0.85) {
+      section.classList.add("visible");
+    }
+  });
+};
+
+window.addEventListener("scroll", reveal);
+reveal();
+</script>
+
+</body>
+</html>
