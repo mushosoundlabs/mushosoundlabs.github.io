@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mushosound Labs | Producción, Mezcla y Mastering</title>
-<meta name="description" content="Estudio de producción musical, mezcla y mastering profesional para artistas independientes.">
+<meta name="description" content="Estudio de producción musical, mezcla y mastering profesional.">
 
 <style>
 html { scroll-behavior: smooth; }
@@ -40,21 +40,24 @@ nav .container {
   padding: 15px 20px;
 }
 
-nav a {
+nav a, nav button {
   color: #fff;
   text-decoration: none;
   margin-left: 20px;
   font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-nav a:hover { color: #e63946; }
+nav a:hover, nav button:hover {
+  color: #e63946;
+}
 
 /* HERO */
 header {
   height: 90vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-    url("img/bg.jpg") center / cover fixed;
+  background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85));
   display: flex;
   align-items: center;
 }
@@ -72,7 +75,6 @@ header h1 {
 header p {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 1.2rem;
   color: #ccc;
 }
 
@@ -81,8 +83,8 @@ header p {
   padding: 15px 35px;
   background: #e63946;
   color: #fff;
-  text-decoration: none;
   border-radius: 30px;
+  text-decoration: none;
   font-weight: bold;
   display: inline-block;
 }
@@ -90,21 +92,12 @@ header p {
 /* SECTIONS */
 section {
   padding: 65px 0;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 section h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 25px;
-  position: relative;
 }
 
 section h2::after {
@@ -132,8 +125,8 @@ section p {
 
 .card {
   background: #1a1a1a;
-  padding: 25px;
-  border-radius: 14px;
+  padding: 30px;
+  border-radius: 18px;
   text-align: center;
 }
 
@@ -142,12 +135,22 @@ section p {
   margin-top: 0;
 }
 
-/* IFRAME */
-iframe {
-  width: 100%;
-  height: 152px;
-  border: none;
-  border-radius: 12px;
+/* COMO TRABAJAMOS (layout original) */
+#como-trabajo .grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#como-trabajo .card:nth-child(4) {
+  grid-column: 2 / 3;
+}
+
+@media (max-width: 900px) {
+  #como-trabajo .grid {
+    grid-template-columns: 1fr;
+  }
+  #como-trabajo .card:nth-child(4) {
+    grid-column: auto;
+  }
 }
 
 /* FORM */
@@ -189,49 +192,42 @@ footer {
   <div class="container">
     <div>Mushosound Labs</div>
     <div>
-      <a href="#servicios">Servicios</a>
-      <a href="#como-trabajo">Cómo trabajamos</a>
-      <a href="#portfolio">Trabajo</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#servicios" data-key="nav_services">Servicios</a>
+      <a href="#como-trabajo" data-key="nav_process">Cómo trabajamos</a>
+      <a href="#portfolio" data-key="nav_work">Trabajo</a>
+      <a href="#contacto" data-key="nav_contact">Contacto</a>
+      <button onclick="setLang('es')">ES</button>
+      <button onclick="setLang('en')">EN</button>
     </div>
   </div>
 </nav>
 
 <header>
   <div class="container">
-    <h1>Producción, Mezcla y Mastering Profesional</h1>
-    <p>
+    <h1 data-key="hero_title">Producción, Mezcla y Mastering Profesional</h1>
+    <p data-key="hero_text">
       Estudio de producción musical enfocado en sonido moderno,
       claro y competitivo para artistas independientes.
     </p>
-    <a href="#contacto" class="btn">Pedir presupuesto</a>
+    <a href="#contacto" class="btn" data-key="hero_btn">Pedir presupuesto</a>
   </div>
 </header>
 
 <section id="servicios">
   <div class="container">
-    <h2>Servicios</h2>
+    <h2 data-key="services_title">Servicios</h2>
     <div class="grid">
       <div class="card">
-        <h3>Producción Musical</h3>
-        <p>
-          Desarrollo integral de canciones: arreglos,
-          elección sonora y acompañamiento creativo.
-        </p>
+        <h3 data-key="prod_title">Producción Musical</h3>
+        <p data-key="prod_text">Desarrollo integral de canciones.</p>
       </div>
       <div class="card">
-        <h3>Mezcla</h3>
-        <p>
-          Mezcla profesional con enfoque musical y técnico.
-          Balance, profundidad y carácter.
-        </p>
+        <h3 data-key="mix_title">Mezcla</h3>
+        <p data-key="mix_text">Balance, profundidad y carácter.</p>
       </div>
       <div class="card">
-        <h3>Mastering</h3>
-        <p>
-          Mastering optimizado para plataformas digitales y CD,
-          asegurando volumen competitivo y correcta traducción.
-        </p>
+        <h3 data-key="mast_title">Mastering</h3>
+        <p data-key="mast_text">Optimizado para plataformas digitales.</p>
       </div>
     </div>
   </div>
@@ -239,70 +235,40 @@ footer {
 
 <section id="como-trabajo">
   <div class="container">
-    <h2>Cómo trabajamos</h2>
+    <h2 data-key="process_title">Cómo trabajamos</h2>
     <div class="grid">
       <div class="card">
-        <h3>Enfoque</h3>
-        <p>
-          Cada proyecto se aborda de forma personalizada,
-          respetando la identidad del artista y la intención
-          de la canción.
-        </p>
+        <h3 data-key="focus_title">Enfoque</h3>
+        <p data-key="focus_text">Cada proyecto se aborda de forma personalizada.</p>
       </div>
       <div class="card">
-        <h3>Proceso</h3>
-        <p>
-          El trabajo se desarrolla por etapas claras:
-          producción, mezcla y mastering, con comunicación
-          directa durante todo el proceso.
-        </p>
+        <h3 data-key="proc_title">Proceso</h3>
+        <p data-key="proc_text">Comunicación directa durante todo el proceso.</p>
       </div>
       <div class="card">
-        <h3>Sonido</h3>
-        <p>
-          Se prioriza el balance, la profundidad y la correcta
-          traducción en distintos sistemas.
-        </p>
+        <h3 data-key="sound_title">Sonido</h3>
+        <p data-key="sound_text">Correcta traducción en distintos sistemas.</p>
       </div>
       <div class="card">
-        <h3>Entrega</h3>
-        <p>
-          Proyectos listos para publicación, cumpliendo
-          estándares profesionales de calidad y volumen.
-        </p>
+        <h3 data-key="deliv_title">Entrega</h3>
+        <p data-key="deliv_text">Listo para publicación profesional.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="container">
-    <h2>Trabajos realizados en el estudio</h2>
-    <p>
-      Canciones producidas, mezcladas y masterizadas
-      íntegramente en Mushosound Labs.
-    </p>
-    <div class="grid">
-      <div class="card"><iframe src="https://open.spotify.com/embed/track/2VMZp3EoB2b0mekEZftMt7"></iframe></div>
-      <div class="card"><iframe src="https://open.spotify.com/embed/track/5eqCOLnLdgjiXDovTT0EYz"></iframe></div>
-      <div class="card"><iframe src="https://open.spotify.com/embed/track/1UenaMYrA7yB6aXup2NqpC"></iframe></div>
     </div>
   </div>
 </section>
 
 <section id="contacto">
   <div class="container">
-    <h2>Contacto</h2>
-    <p>
-      Contanos sobre tu proyecto y evaluamos la mejor forma
-      de llevarlo al siguiente nivel.
+    <h2 data-key="contact_title">Contacto</h2>
+    <p data-key="contact_text">
+      Contanos sobre tu proyecto y evaluamos la mejor forma de llevarlo al siguiente nivel.
     </p>
 
     <form action="https://formspree.io/f/xnjjagzq" method="POST">
       <input type="text" name="name" placeholder="Nombre" required>
       <input type="email" name="email" placeholder="Email" required>
       <textarea name="message" rows="5" placeholder="Mensaje" required></textarea>
-      <button type="submit">Enviar mensaje</button>
+      <button type="submit" data-key="contact_btn">Enviar mensaje</button>
     </form>
   </div>
 </section>
@@ -315,16 +281,71 @@ footer {
 </footer>
 
 <script>
-const sections = document.querySelectorAll("section");
-const reveal = () => {
-  sections.forEach(section => {
-    if (section.getBoundingClientRect().top < window.innerHeight * 0.85) {
-      section.classList.add("visible");
-    }
-  });
+const texts = {
+  es: {
+    nav_services: "Servicios",
+    nav_process: "Cómo trabajamos",
+    nav_work: "Trabajo",
+    nav_contact: "Contacto",
+    hero_title: "Producción, Mezcla y Mastering Profesional",
+    hero_text: "Estudio de producción musical enfocado en sonido moderno, claro y competitivo para artistas independientes.",
+    hero_btn: "Pedir presupuesto",
+    services_title: "Servicios",
+    prod_title: "Producción Musical",
+    prod_text: "Desarrollo integral de canciones.",
+    mix_title: "Mezcla",
+    mix_text: "Balance, profundidad y carácter.",
+    mast_title: "Mastering",
+    mast_text: "Optimizado para plataformas digitales.",
+    process_title: "Cómo trabajamos",
+    focus_title: "Enfoque",
+    focus_text: "Cada proyecto se aborda de forma personalizada.",
+    proc_title: "Proceso",
+    proc_text: "Comunicación directa durante todo el proceso.",
+    sound_title: "Sonido",
+    sound_text: "Correcta traducción en distintos sistemas.",
+    deliv_title: "Entrega",
+    deliv_text: "Listo para publicación profesional.",
+    contact_title: "Contacto",
+    contact_text: "Contanos sobre tu proyecto y evaluamos la mejor forma de llevarlo al siguiente nivel.",
+    contact_btn: "Enviar mensaje"
+  },
+  en: {
+    nav_services: "Services",
+    nav_process: "How we work",
+    nav_work: "Work",
+    nav_contact: "Contact",
+    hero_title: "Professional Music Production, Mixing & Mastering",
+    hero_text: "Music production studio focused on modern, competitive sound for independent artists.",
+    hero_btn: "Request a quote",
+    services_title: "Services",
+    prod_title: "Music Production",
+    prod_text: "Complete song development.",
+    mix_title: "Mixing",
+    mix_text: "Balance, depth and character.",
+    mast_title: "Mastering",
+    mast_text: "Optimized for digital platforms.",
+    process_title: "How we work",
+    focus_title: "Approach",
+    focus_text: "Each project is approached in a personalized way.",
+    proc_title: "Process",
+    proc_text: "Direct communication throughout the process.",
+    sound_title: "Sound",
+    sound_text: "Accurate translation across different systems.",
+    deliv_title: "Delivery",
+    deliv_text: "Release-ready professional delivery.",
+    contact_title: "Contact",
+    contact_text: "Tell us about your project and let's take it to the next level.",
+    contact_btn: "Send message"
+  }
 };
-window.addEventListener("scroll", reveal);
-reveal();
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-key]").forEach(el => {
+    el.textContent = texts[lang][el.dataset.key];
+  });
+}
 </script>
 
 </body>
